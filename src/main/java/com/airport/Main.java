@@ -73,7 +73,17 @@ public class Main {
             }
             else if(query.equals("2")){
                 //Todo: fix request booking method to use passenger id and flight id
-                //bs.requestBooking();
+                System.out.println("Enter passenger email");
+                String email = getUserInput();
+                Passenger p = ps.getPassengerByID(email);
+                if (!(p == null)) {
+                    System.out.println("Enter flight id that you want to book");
+                    int flightID = Integer.parseInt(getUserInput());
+                    Flight f = fs.getFlightByID(flightID);
+                    if (!(f == null)){
+                        bs.requestBooking(p, fs, f);
+                    } else System.out.println("flight does not exist");
+                }else System.out.println("User does not exist, please create user");
             }
             else if(query.equals("3")) {
                 //run method that displays all flights

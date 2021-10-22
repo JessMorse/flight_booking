@@ -23,6 +23,7 @@ public class BookingService {
         }
         else System.out.println("flight does not exist");
     }
+
     public static void addToDatabase() {
     }
 
