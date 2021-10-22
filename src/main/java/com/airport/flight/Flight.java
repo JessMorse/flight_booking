@@ -10,17 +10,16 @@ public class Flight {
     private Passenger[] passengers;
     private int capacity;
     private int currentlyOccupied;
-    private FlightStatus status;
+    private FlightStatus status = FlightStatus.OK;
     private String departure;
     private String destination;
     private LocalDate date;
 
-    public Flight(int capacity, int currentlyOccupied, FlightStatus status, String destination, String departure, LocalDate date) {
+    public Flight(int capacity, int currentlyOccupied, String destination, String departure, LocalDate date) {
         //this.id = id;
         this.passengers = new Passenger[capacity];
         this.capacity = capacity;
         this.currentlyOccupied = currentlyOccupied;
-        this.status = status;
         this.departure = departure;
         this.destination = destination;
         this.date = date;

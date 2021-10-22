@@ -5,6 +5,7 @@ import com.airport.flight.FlightService;
 import com.airport.flight.Flight;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class BookingService {
 
@@ -24,6 +25,9 @@ public class BookingService {
     }
     public static void addToDatabase() {
     }
+
+
+
 
 
 }
