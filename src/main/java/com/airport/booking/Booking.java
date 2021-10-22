@@ -7,17 +7,17 @@ import com.airport.passenger.Passenger;
 
 
 public class Booking {
-    private Flight flight;
+    private Flight[] flight;
     private Passenger passenger;
     private BookingStatus status;
 
-    public Booking(Flight flight, Passenger passenger, BookingStatus status) {
+    public Booking(Flight[] flight, Passenger passenger, BookingStatus status) {
         this.flight = flight;
         this.passenger = passenger;
         this.status = status;
     }
 
-    public Flight getFlight() {
+    public Flight[] getFlight() {
         return flight;
     }
 
@@ -29,7 +29,7 @@ public class Booking {
         return status;
     }
 
-    public void setFlight(Flight flight) {
+    public void setFlight(Flight[] flight) {
         this.flight = flight;
     }
 
