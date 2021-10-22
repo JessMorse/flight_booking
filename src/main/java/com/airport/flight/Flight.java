@@ -1,6 +1,7 @@
 package com.airport.flight;
 import com.airport.passenger.Passenger;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -12,19 +13,50 @@ public class Flight {
     private FlightStatus status;
     private String departure;
     private String destination;
+    private LocalDate date;
 
-    public Flight(int capacity, int currentlyOccupied, FlightStatus status, String destination, String departure) {
+    public Flight(int capacity, int currentlyOccupied, FlightStatus status, String destination, String departure, LocalDate date) {
         //this.id = id;
-        //this.passengers = passengers;
+        this.passengers = new Passenger[capacity];
         this.capacity = capacity;
         this.currentlyOccupied = currentlyOccupied;
         this.status = status;
         this.departure = departure;
         this.destination = destination;
+        this.date = date;
     }
+
 
     public void setId(int id){
         this.id = id;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public int getCurrentlyOccupied() {
+        return currentlyOccupied;
+    }
+
+    public Passenger[] getPassengers(){
+        return this.passengers;
+    }
+
+    public void setPassengers(int index, Passenger passenger) {
+        this.passengers[index] = passenger;
+    }
+
+    public void setCurrentlyOccupied(int currentlyOccupied) {
+        this.currentlyOccupied = currentlyOccupied;
+    }
+
+    public void setStatus(FlightStatus status) {
+        this.status = status;
+    }
+
+    public int getId(){
+        return this.id;
     }
 
     @Override
@@ -32,13 +64,14 @@ public class Flight {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Flight flight = (Flight) o;
-        return id == flight.id && capacity == flight.capacity && status == flight.status && Objects.equals(departure, flight.departure) && Objects.equals(destination, flight.destination);
+        return  capacity == flight.capacity && status == flight.status && Objects.equals(departure, flight.departure) && Objects.equals(destination, flight.destination) && Objects.equals(date, flight.date);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, capacity, status, departure, destination);
+        return Objects.hash(capacity, status, departure, destination, date);
     }
+
 
     @Override
     public String toString() {
@@ -50,6 +83,6 @@ public class Flight {
                 ", status=" + status +
                 ", departure='" + departure + '\'' +
                 ", destination='" + destination + '\'' +
-                '}';
+                '}' + '\n' + '\n';
     }
 }
