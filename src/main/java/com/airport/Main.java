@@ -7,6 +7,7 @@ import com.airport.flight.FlightStatus;
 import com.airport.passenger.Passenger;
 import com.airport.passenger.PassengerService;
 
+import java.io.File;
 import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.Scanner;
@@ -21,7 +22,7 @@ public class Main {
 
     }
 
-    //testing method
+/*    //testing method
     public static void someFlights(){
 
         Flight flight1 = new Flight(50, 0,  "London", "Edinburgh", LocalDate.of(2021, 10,15));
@@ -44,27 +45,37 @@ public class Main {
         System.out.println(flightService.getBookedFlights());
 
 //        System.out.println(flightService.getFlights());
-    }
+    }*/
 
     public static String getUserInput(){
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
 
-    public void initProgram(){
+    public void displayFunctions(){
         System.out.println("1. Add user");
         System.out.println("2. Book a flight");
         System.out.println("3. Display all flights");
-        System.out.println("4. Display booked flights");
+        System.out.println("4. Display every booked flight");
         System.out.println("5. Cancel a flight");
         System.out.println("6. Add a new flight");
+        System.out.println("7. Cancel a booking");
     }
 
+   /* public void initProgram(){
+        File users = new File("users.json");
+        if (users.isFile()) {
+            ps.importUsers();
+        }
+    }*/
+
     public void runAppropriateTask(){
+        //initProgram();
         while (true){
-            initProgram();
+            displayFunctions();
             String query = getUserInput();
             if (query.equals("exit")){
+                //ps.outputAllUsers();
                 break;
             }
             else if(query.equals("1")){
@@ -81,17 +92,25 @@ public class Main {
             }
             else if(query.equals("4")){
                 //run method that displays all booked flights
-                fs.getBookedFlights();
+                System.out.println(fs.getBookedFlights());
             }
             else if(query.equals("5")){
                 //run method that cancels a flight
                 System.out.println("What is the ID of flight would you like to cancel?");
-                int id = Integer.parseInt(getUserInput());
-                fs.cancelFlight(fs.getFlightByID(id));
-                System.out.println("Flight cancelled :(" );
+                try {
+                    int id = Integer.parseInt(getUserInput());
+                    fs.cancelFlight(fs.getFlightByID(id));
+                } catch (NumberFormatException e) {
+                    System.out.println("Please enter an integer");
+                }
+
+                //System.out.println("Flight cancelled :(" );
             }
             else if (query.equals("6")){
                 fs.generateFlight();
+            }
+            else if (query.equals("7")){
+                bs.cancelBooking(fs, ps);
             }
         }
     }

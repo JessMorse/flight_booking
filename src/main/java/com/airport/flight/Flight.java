@@ -34,6 +34,10 @@ public class Flight {
         return capacity;
     }
 
+    public FlightStatus getStatus(){
+        return this.status;
+    }
+
     public int getCurrentlyOccupied() {
         return currentlyOccupied;
     }

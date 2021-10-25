@@ -16,7 +16,7 @@ public class Email {
         return matcher.find();
     }
 
-    public String getEmail(String email) {
+    public static String getEmail(String email) {
         if(validate(email)) return email;
         else return null;
     }

@@ -12,11 +12,11 @@ public class Booking {
     private BookingStatus status;
     private int id;
 
-    public Booking(Flight flight, Passenger passenger, BookingStatus status, int id) {
+    public Booking(Flight flight, Passenger passenger) {
         this.flight = flight;
         this.passenger = passenger;
-        this.status = status;
-        this.id = id;
+        this.status = BookingStatus.BOOKED;
+        //this.id = id;
     }
 
     public Flight getFlight() {
@@ -41,6 +41,10 @@ public class Booking {
 
     public void setBookingStatus(BookingStatus status) {
         this.status = status;
+    }
+
+    public void setId(int id){
+        this.id = id;
     }
 
     @Override

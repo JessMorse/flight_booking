@@ -3,6 +3,7 @@ package com.airport.flight;
 import com.airport.passenger.Passenger;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -17,12 +18,20 @@ public class FlightService {
         }
     }
 
+
     public ArrayList<Flight> getFlights(){
         return this.flights;
     }
 
     public void cancelFlight(Flight flight){
-        flight.setStatus(FlightStatus.CANCELLED);
+        if(flight != null) {
+            flight.setStatus(FlightStatus.CANCELLED);
+            System.out.println("Flight cancelled :(");
+        }
+        else{
+            System.out.println("Flight not found");
+        }
+
     }
 
     public ArrayList<Flight> getBookedFlights() {
@@ -59,13 +68,20 @@ public class FlightService {
         System.out.println("Please type flight destination");
         String destination = getUserInput();
         System.out.println("Please type flight date in the format YYYY-MM-DD");
-        LocalDate date = LocalDate.parse(getUserInput());
 
-        Flight flight = new Flight(capacity, 0, departure, destination, date );
-        System.out.println("Success! \n");
-        System.out.println(flight);
-        addFlight(flight);
-        return flight;
+        try{
+            LocalDate date = LocalDate.parse(getUserInput());
+            Flight flight = new Flight(capacity, 0, departure, destination, date );
+            System.out.println("Success! \n");
+            System.out.println(flight);
+            addFlight(flight);
+            return flight;
+
+        }catch(DateTimeParseException e){
+            System.out.println("Please enter a valid date");
+        }
+        return null;
+
     }
 
 
