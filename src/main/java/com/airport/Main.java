@@ -60,6 +60,7 @@ public class Main {
         System.out.println("5. Cancel a flight");
         System.out.println("6. Add a new flight");
         System.out.println("7. Cancel a booking");
+        System.out.println("Type 'exit' to quit the application");
     }
 
    /* public void initProgram(){
