@@ -46,7 +46,7 @@ public class Main {
 //        System.out.println(flightService.getFlights());
     }
 
-    public String getUserInput(){
+    public static String getUserInput(){
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
@@ -72,12 +72,12 @@ public class Main {
                 ps.generatePassenger();
             }
             else if(query.equals("2")){
-                //Todo: fix request booking method to use passenger id and flight id
-                //bs.requestBooking();
+                //adds passengers to flight
+                bs.setBooking(ps, fs);
             }
             else if(query.equals("3")) {
                 //run method that displays all flights
-                fs.getFlights();
+                System.out.println(fs.getFlights());
             }
             else if(query.equals("4")){
                 //run method that displays all booked flights

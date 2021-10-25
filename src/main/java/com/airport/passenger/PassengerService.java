@@ -14,7 +14,11 @@ public class PassengerService {
 
     public Passenger getPassengerByID(String email){
         for(Passenger passenger : users){
-            if (passenger.getEmail().equals(email)) return passenger;
+//            System.out.println("checking");
+            if (passenger.getEmail().equals(email)) {
+//                System.out.println("found");
+                return passenger;
+            }
         }
         return null;
     }
