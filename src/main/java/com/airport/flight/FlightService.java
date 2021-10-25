@@ -71,7 +71,7 @@ public class FlightService {
 
         try{
             LocalDate date = LocalDate.parse(getUserInput());
-            Flight flight = new Flight(capacity, 0, departure, destination, date );
+            Flight flight = new Flight(capacity, 0, destination, departure, date );
             System.out.println("Success! \n");
             System.out.println(flight);
             addFlight(flight);

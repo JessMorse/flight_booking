@@ -88,8 +88,10 @@ public class BookingService {
                                     passengers[j + 1] = null;
                                 } else break;
                             }
+                            break;
                         }
                     }
+                    break;
                 }
             }
         }
