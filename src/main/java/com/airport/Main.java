@@ -5,6 +5,7 @@ import com.airport.flight.Flight;
 import com.airport.flight.FlightService;
 import com.airport.flight.FlightStatus;
 import com.airport.passenger.Passenger;
+import com.airport.passenger.PassengerFileDAO;
 import com.airport.passenger.PassengerService;
 
 import java.io.File;
@@ -77,6 +78,8 @@ public class Main {
             String query = getUserInput();
             if (query.equals("exit")){
                 //ps.outputAllUsers();
+                PassengerFileDAO pfdao = new PassengerFileDAO();
+                pfdao.saveUserList(ps);
                 break;
             }
             else if(query.equals("1")){

@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 public class PassengerService {
     private List<Passenger> users = new ArrayList<>();
-    private Gson gson = new Gson();
+    //private Gson gson = new Gson();
 
     public void addUser(Passenger user){
         if (!users.contains(user) && user.getEmail()!=null) {

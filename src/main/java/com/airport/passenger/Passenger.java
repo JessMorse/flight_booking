@@ -28,7 +28,9 @@ public class Passenger {
     }
 
     public void addFlight(Flight flight){
+        System.out.println(this.flights);
         this.flights.add(flight);
+        System.out.println(this.flights);
     }
 
     public String getFlights() {
