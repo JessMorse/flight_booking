@@ -1,0 +1,29 @@
+{
+  "bookings": [
+    {
+      "flight": {
+        "id": 0,
+        "passengers": [
+          "bob@bob.com"
+        ],
+        "capacity": 1,
+        "currentlyOccupied": 1,
+        "status": "OK",
+        "departure": "LHR",
+        "destination": "LAX",
+        "date": "28-Oct-2021"
+      },
+      "passenger": {
+        "passenger": "Bob",
+        "email": "bob@bob.com",
+        "passportNo": 1,
+        "phoneNo": "12345678900",
+        "flights": [
+          0
+        ]
+      },
+      "status": "BOOKED",
+      "id": 0
+    }
+  ]
+}

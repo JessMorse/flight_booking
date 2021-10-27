@@ -1,7 +1,9 @@
 package com.airport;
 
+import com.airport.booking.BookingFileDAO;
 import com.airport.booking.BookingService;
 import com.airport.flight.Flight;
+import com.airport.flight.FlightFileDAO;
 import com.airport.flight.FlightService;
 import com.airport.flight.FlightStatus;
 import com.airport.passenger.Passenger;
@@ -70,6 +72,16 @@ public class Main {
             PassengerFileDAO pfdao = new PassengerFileDAO();
             ps = pfdao.getUserList();
         }
+        File flights = new File("src/main/resources/flights.json");
+        if (flights.exists()){
+            FlightFileDAO ffdao = new FlightFileDAO();
+            fs = ffdao.getFlightsList();
+        }
+        File bookings = new File("src/main/resources/bookings.json");
+        if (flights.exists()){
+            BookingFileDAO bfdao = new BookingFileDAO();
+            bs = bfdao.getBookingList();
+        }
     }
 
     public void runAppropriateTask(){
@@ -81,6 +93,10 @@ public class Main {
                 //ps.outputAllUsers();
                 PassengerFileDAO pfdao = new PassengerFileDAO();
                 pfdao.saveUserList(ps);
+                FlightFileDAO ffdao = new FlightFileDAO();
+                ffdao.saveFlightList(fs);
+                BookingFileDAO bfdao = new BookingFileDAO();
+                bfdao.saveBookingList(bs);
                 break;
             }
             else if(query.equals("1")){
@@ -119,6 +135,7 @@ public class Main {
             }
             else if (query.equals("8")){
                 System.out.println(ps.getUsers());
+                System.out.println(fs.getFlights());
             }
         }
     }
