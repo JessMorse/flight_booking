@@ -13,7 +13,8 @@ public class Passenger {
     private final String email;
     private final int passportNo;
     private final String phoneNo;
-    private final ArrayList<Flight> flights = new ArrayList<>();
+//    private final ArrayList<Flight> flights = new ArrayList<>();
+    private final ArrayList<Integer> flights = new ArrayList<>();
     //private Email myEmail = new Email();
 
     public Passenger(String passenger, String email, int passportNo, String phoneNo) {
@@ -29,15 +30,15 @@ public class Passenger {
 
     public void addFlight(Flight flight){
         System.out.println(this.flights);
-        this.flights.add(flight);
+        this.flights.add(flight.getId());
         System.out.println(this.flights);
     }
 
     public String getFlights() {
         String temp = "";
-        for (Flight flight : flights){
+        for (int flightID : flights){
             temp+="FlightID: ";
-            temp+=flight.getId();
+            temp+=flightID;
             temp+=", ";
         }
         return temp;

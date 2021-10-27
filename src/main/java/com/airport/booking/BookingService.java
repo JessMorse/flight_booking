@@ -31,8 +31,7 @@ public class BookingService {
         } else System.out.println("flight does not exist");
     }
 
-    public static void addToDatabase() {
-    }
+
 
     public void setBooking(PassengerService ps, FlightService fs) {
         System.out.println("Enter passenger email");
@@ -69,14 +68,14 @@ public class BookingService {
             int id = Integer.parseInt(Main.getUserInput());
             for (Flight flight : flights) {
                 if (flight.getId() == id) {
-                    Passenger[] passengers = flight.getPassengers();
+                    String[] passengers = flight.getPassengers();
                     for (int i = 0; i < passengers.length; i++) {
-                        Passenger passenger = passengers[i];
+                        String passenger = passengers[i];
                         if (passenger == null) {
                             System.out.println("Passenger not found");
                             break;
                         }
-                        else if (passenger.getEmail().equals(email)) {
+                        else if (passenger.equals(email)) {
                             passengers[i] = null;
                             System.out.println(email + " " + id);
                             Booking booking = getBookingByEmailAndFlightID(email, id);

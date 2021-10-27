@@ -64,15 +64,16 @@ public class Main {
         System.out.println("Type 'exit' to quit the application");
     }
 
-   /* public void initProgram(){
-        File users = new File("users.json");
-        if (users.isFile()) {
-            ps.importUsers();
+    public void initProgram(){
+        File users = new File("src/main/resources/users.json");
+        if (users.exists()){
+            PassengerFileDAO pfdao = new PassengerFileDAO();
+            ps = pfdao.getUserList();
         }
-    }*/
+    }
 
     public void runAppropriateTask(){
-        //initProgram();
+        initProgram();
         while (true){
             displayFunctions();
             String query = getUserInput();
@@ -115,6 +116,9 @@ public class Main {
             }
             else if (query.equals("7")){
                 bs.cancelBooking(fs, ps);
+            }
+            else if (query.equals("8")){
+                System.out.println(ps.getUsers());
             }
         }
     }

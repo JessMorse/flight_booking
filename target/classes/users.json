@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "passenger": "Bob",
+      "email": "bob@bob.com",
+      "passportNo": 1,
+      "phoneNo": "12345678900",
+      "flights": [
+        0
+      ]
+    }
+  ]
+}

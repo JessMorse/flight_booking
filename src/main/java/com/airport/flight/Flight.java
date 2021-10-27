@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class Flight {
     private int id;
-    private Passenger[] passengers;
+    private String[] passengers;
     private int capacity;
     private int currentlyOccupied;
     private FlightStatus status = FlightStatus.OK;
@@ -17,7 +17,7 @@ public class Flight {
 
     public Flight(int capacity, int currentlyOccupied, String destination, String departure, LocalDate date) {
         //this.id = id;
-        this.passengers = new Passenger[capacity];
+        this.passengers = new String[capacity];
         this.capacity = capacity;
         this.currentlyOccupied = currentlyOccupied;
         this.departure = departure;
@@ -42,12 +42,12 @@ public class Flight {
         return currentlyOccupied;
     }
 
-    public Passenger[] getPassengers(){
+    public String[] getPassengers(){
         return this.passengers;
     }
 
     public void setPassengers(int index, Passenger passenger) {
-        this.passengers[index] = passenger;
+        this.passengers[index] = passenger.getEmail();
     }
 
     public void setCurrentlyOccupied(int currentlyOccupied) {

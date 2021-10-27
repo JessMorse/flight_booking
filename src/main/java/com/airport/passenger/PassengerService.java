@@ -25,6 +25,9 @@ public class PassengerService {
         else System.out.println("User already exists with this email or passport number or your email is not valid");
     }
 
+    public List<Passenger> getUsers(){
+        return this.users;
+    }
     public Passenger getPassengerByID(String email){
         for(Passenger passenger : users){
 //            System.out.println("checking");
